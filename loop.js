@@ -6,7 +6,7 @@ let i = 0;
 do {
     i++;
     loopCount = loopCount + i;
-} while (i < 10);
+} while (i < 100);
 
 console.log('This is a lot of numbers: ', loopCount)
 
@@ -65,13 +65,32 @@ const arrayOfPeeps =
         }
     ]
 
-    function oddPeeps(peeps) {
-        for (const peep of peeps) {
-            const birthYear = new Date(peep.birthDate).getFullYear();
-            if (birthYear % 2 !== 0) {
-                console.log('Odd birthdate:', peep.birthDate);
-            }
+function oddPeeps(peeps) {
+    for (const peep of peeps) {
+        const birthYear = new Date(peep.birthDate).getFullYear();
+        if (birthYear % 2 !== 0) {
+            console.log('Odd birthdate:', peep.birthDate);
         }
     }
+}
 
 oddPeeps(arrayOfPeeps)
+
+arrayOfPeeps.map(peep => {
+    console.log('Mappin:', peep)
+})
+
+const boys = arrayOfPeeps.filter(peep =>
+    peep.gender === 'male'
+)
+
+console.log('Boys:', boys)
+
+const oldies = arrayOfPeeps.filter(peep =>
+    new Date(peep.birthDate) < new Date('1990-01-01')
+)
+
+console.log('Oldies:', oldies)
+
+
+
